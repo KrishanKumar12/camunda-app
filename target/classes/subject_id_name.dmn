@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="Definitions_1af61jy" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="4.12.0">
+  <decision id="subject_id_name_dmn" name="Get Subject Name">
+    <decisionTable id="DecisionTable_1co37ob">
+      <input id="Input_1" label="Subject Id" camunda:inputVariable="subjectId">
+        <inputExpression id="InputExpression_1" typeRef="integer" expressionLanguage="javascript">
+          <text>subjectObj.id;</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="Subject Name" name="subjectName" typeRef="string" />
+      <rule id="DecisionRule_19pxswo">
+        <inputEntry id="UnaryTests_1x2bg0c">
+          <text>1</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_05cg4nx">
+          <text>"English"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0b09d6v">
+        <inputEntry id="UnaryTests_0m4tuty">
+          <text>2</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0u584rr">
+          <text>"Mathematics"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0p7hqbj">
+        <inputEntry id="UnaryTests_0xnk7fc">
+          <text>3</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0qmycg6">
+          <text>"Science"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1fvfz6i">
+        <inputEntry id="UnaryTests_11efxdn">
+          <text>4</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_043ezwo">
+          <text>"Social Studies"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="subject_id_name_dmn">
+        <dc:Bounds height="80" width="180" x="160" y="100" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0ubc5cy" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.12.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.15.0">
+  <bpmn:process id="sequence_flows_execute" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_19u1ee3</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_19u1ee3" sourceRef="StartEvent_1" targetRef="Activity_1x1xjg8" />
+    <bpmn:scriptTask id="Activity_1x1xjg8" name="Task 1" scriptFormat="JavaScript">
+      <bpmn:incoming>Flow_19u1ee3</bpmn:incoming>
+      <bpmn:outgoing>Flow_1fycvz6</bpmn:outgoing>
+      <bpmn:outgoing>Flow_1a7f1bw</bpmn:outgoing>
+      <bpmn:script>print('Task 1');</bpmn:script>
+    </bpmn:scriptTask>
+    <bpmn:sequenceFlow id="Flow_1fycvz6" sourceRef="Activity_1x1xjg8" targetRef="Activity_0dfnp01" />
+    <bpmn:scriptTask id="Activity_0dfnp01" name="Task 2" scriptFormat="JavaScript">
+      <bpmn:incoming>Flow_1fycvz6</bpmn:incoming>
+      <bpmn:outgoing>Flow_0d51gud</bpmn:outgoing>
+      <bpmn:script>print('Task 2')</bpmn:script>
+    </bpmn:scriptTask>
+    <bpmn:endEvent id="Event_0n8m0jt">
+      <bpmn:incoming>Flow_0d51gud</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_0d51gud" sourceRef="Activity_0dfnp01" targetRef="Event_0n8m0jt" />
+    <bpmn:scriptTask id="Activity_0u0iktr" name="Task 3" default="Flow_1nm193w" scriptFormat="JavaScript" camunda:resultVariable="numberOfCoins">
+      <bpmn:incoming>Flow_1a7f1bw</bpmn:incoming>
+      <bpmn:outgoing>Flow_09fn7z9</bpmn:outgoing>
+      <bpmn:outgoing>Flow_1lzyrwz</bpmn:outgoing>
+      <bpmn:outgoing>Flow_1nm193w</bpmn:outgoing>
+      <bpmn:script>print('Task 3');
+
+var num = 15;
+num;</bpmn:script>
+    </bpmn:scriptTask>
+    <bpmn:sequenceFlow id="Flow_1a7f1bw" sourceRef="Activity_1x1xjg8" targetRef="Activity_0u0iktr" />
+    <bpmn:sequenceFlow id="Flow_09fn7z9" sourceRef="Activity_0u0iktr" targetRef="Activity_13doai9">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${numberOfCoins == 4}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_1lzyrwz" sourceRef="Activity_0u0iktr" targetRef="Activity_0krt645">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression" language="JavaScript">var result = false;
+if (numberOfCoins == 5) {
+result = true;
+}
+
+result;</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:scriptTask id="Activity_13doai9" name="Task 4" scriptFormat="JavaScript">
+      <bpmn:incoming>Flow_09fn7z9</bpmn:incoming>
+      <bpmn:outgoing>Flow_0lotnot</bpmn:outgoing>
+      <bpmn:script>print('numberOfCoins are 4');</bpmn:script>
+    </bpmn:scriptTask>
+    <bpmn:scriptTask id="Activity_0krt645" name="Task 5" scriptFormat="JavaScript">
+      <bpmn:incoming>Flow_1lzyrwz</bpmn:incoming>
+      <bpmn:outgoing>Flow_06y69zm</bpmn:outgoing>
+      <bpmn:script>print('numberOfCoins are NOT 4');</bpmn:script>
+    </bpmn:scriptTask>
+    <bpmn:endEvent id="Event_1cmmyvf">
+      <bpmn:incoming>Flow_0lotnot</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_0lotnot" sourceRef="Activity_13doai9" targetRef="Event_1cmmyvf" />
+    <bpmn:endEvent id="Event_06yoqxi">
+      <bpmn:incoming>Flow_06y69zm</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_06y69zm" sourceRef="Activity_0krt645" targetRef="Event_06yoqxi" />
+    <bpmn:sequenceFlow id="Flow_1nm193w" sourceRef="Activity_0u0iktr" targetRef="Activity_0huptly" />
+    <bpmn:scriptTask id="Activity_0huptly" name="Task 6" scriptFormat="JavaScript">
+      <bpmn:incoming>Flow_1nm193w</bpmn:incoming>
+      <bpmn:script>print('Default Flow executed');</bpmn:script>
+    </bpmn:scriptTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="sequence_flows_execute">
+      <bpmndi:BPMNEdge id="Flow_1a7f1bw_di" bpmnElement="Flow_1a7f1bw">
+        <di:waypoint x="390" y="140" />
+        <di:waypoint x="390" y="220" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0d51gud_di" bpmnElement="Flow_0d51gud">
+        <di:waypoint x="600" y="100" />
+        <di:waypoint x="662" y="100" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1fycvz6_di" bpmnElement="Flow_1fycvz6">
+        <di:waypoint x="440" y="100" />
+        <di:waypoint x="500" y="100" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_19u1ee3_di" bpmnElement="Flow_19u1ee3">
+        <di:waypoint x="288" y="100" />
+        <di:waypoint x="340" y="100" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_09fn7z9_di" bpmnElement="Flow_09fn7z9">
+        <di:waypoint x="440" y="260" />
+        <di:waypoint x="490" y="260" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1lzyrwz_di" bpmnElement="Flow_1lzyrwz">
+        <di:waypoint x="390" y="300" />
+        <di:waypoint x="390" y="380" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0lotnot_di" bpmnElement="Flow_0lotnot">
+        <di:waypoint x="590" y="260" />
+        <di:waypoint x="642" y="260" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_06y69zm_di" bpmnElement="Flow_06y69zm">
+        <di:waypoint x="440" y="420" />
+        <di:waypoint x="492" y="420" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1nm193w_di" bpmnElement="Flow_1nm193w">
+        <di:waypoint x="340" y="260" />
+        <di:waypoint x="260" y="260" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="252" y="82" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_09fnaju_di" bpmnElement="Activity_1x1xjg8">
+        <dc:Bounds x="340" y="60" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1d126ul_di" bpmnElement="Activity_0dfnp01">
+        <dc:Bounds x="500" y="60" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0n8m0jt_di" bpmnElement="Event_0n8m0jt">
+        <dc:Bounds x="662" y="82" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0hpz05h_di" bpmnElement="Activity_0u0iktr">
+        <dc:Bounds x="340" y="220" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0pr2ojt_di" bpmnElement="Activity_13doai9">
+        <dc:Bounds x="490" y="220" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_18cw548_di" bpmnElement="Activity_0krt645">
+        <dc:Bounds x="340" y="380" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1cmmyvf_di" bpmnElement="Event_1cmmyvf">
+        <dc:Bounds x="642" y="242" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_06yoqxi_di" bpmnElement="Event_06yoqxi">
+        <dc:Bounds x="492" y="402" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0zh8ytz_di" bpmnElement="Activity_0huptly">
+        <dc:Bounds x="160" y="220" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

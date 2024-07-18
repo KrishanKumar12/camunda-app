@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="Definitions_1679nbb" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="4.12.0">
+  <decision id="subject_attributes_dmn" name="Get Subject Attributes">
+    <decisionTable id="DecisionTable_0prx30t" hitPolicy="FIRST">
+      <input id="Input_1" label="Subject Name" camunda:inputVariable="subjectName">
+        <inputExpression id="InputExpression_1" typeRef="string" expressionLanguage="javascript">
+          <text>subjectObj.name;</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="Subject Display Name" name="subjectDisplayName" typeRef="string" />
+      <output id="OutputClause_1r4d4yd" label="Subject Code" name="subjectCode" typeRef="string" />
+      <output id="OutputClause_0ki9cfa" label="Subject Teacher Id" name="subjectTeacherId" typeRef="integer" />
+      <output id="OutputClause_104t3lt" label="Subject Teacher Name" name="subjectTeacherName" typeRef="string" />
+      <rule id="DecisionRule_16sy41f">
+        <inputEntry id="UnaryTests_04w32yd">
+          <text>"English"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0s98atf">
+          <text>"Eng"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0j8elql">
+          <text>"E01"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0jxisst">
+          <text>15</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1sk01w1">
+          <text>"Stefan"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_04y4ygo">
+        <inputEntry id="UnaryTests_0cap4d6">
+          <text>"Mathematics"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_03z6a1z">
+          <text>"Maths"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0ctrhks">
+          <text>"M92"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0kjfb2x">
+          <text>13</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1od8a41">
+          <text>"Damon"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0u18bbp">
+        <inputEntry id="UnaryTests_042zbs7">
+          <text>"Science"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_17ymopg">
+          <text>"Sci"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0st4u6a">
+          <text>"SC3"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1f39064">
+          <text>17</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0zfstie">
+          <text>"Elena"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1i512sb">
+        <inputEntry id="UnaryTests_1bxiwwb">
+          <text>"Social Studies"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0vkqoqr">
+          <text>"SSt"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1kg2wwy">
+          <text>"ST8"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0puwh35">
+          <text>11</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1qtsy0f">
+          <text>"Jenna"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_13hov7f">
+        <inputEntry id="UnaryTests_1c86mca">
+          <text>"Mathematics"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1mm8cjr">
+          <text>"Space"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0fc5t3v">
+          <text>"87878"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0e84z92">
+          <text>89</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_18knubx">
+          <text>"Steve"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="subject_attributes_dmn">
+        <dc:Bounds height="80" width="180" x="160" y="100" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
